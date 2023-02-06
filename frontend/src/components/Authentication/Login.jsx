@@ -20,40 +20,50 @@ function Login() {
 
   return (
     <VStack spacing={"5px"}>
-    <FormControl id="email" isRequired padding={"5px"}>
-      <FormLabel>Email</FormLabel>
-      <Input
-        placeholder="Enter your email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-    </FormControl>
-    <FormControl id="password" isRequired padding={"5px"}>
-      <FormLabel>Password</FormLabel>
-      <InputGroup>
+      <FormControl id="email" isRequired padding={"5px"}>
+        <FormLabel>Email</FormLabel>
         <Input
-          type={show ? "text" : "password"}
-          placeholder="Enter your password"
-          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter your email"
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <InputRightElement width="4.5em">
-          <Button h="1.75rem" size="sm" onClick={handleClick}>
-            {show ? "Hide" : "Show"}
-          </Button>
-        </InputRightElement>
-      </InputGroup>
-    </FormControl>
-    
-    
+      </FormControl>
+      <FormControl id="password" isRequired padding={"5px"}>
+        <FormLabel>Password</FormLabel>
+        <InputGroup>
+          <Input
+            type={show ? "text" : "password"}
+            placeholder="Enter your password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <InputRightElement width="4.5em">
+            <Button h="1.75rem" size="sm" onClick={handleClick}>
+              {show ? "Hide" : "Show"}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </FormControl>
 
-  <Button colorScheme={"orange"} width="100%" style={{marginTop: 15}} onChlick={submitHandler}>
-    Login
-  </Button>
-  <Button colorScheme={"red"} width="100%" style={{marginTop: 15}} onChlick={submitHandler}>
-    Get Guest User Credentials
-  </Button>
-
-  </VStack>
-  )
+      <Button
+        colorScheme={"orange"}
+        width="100%"
+        style={{ marginTop: 15 }}
+        onChlick={submitHandler}
+      >
+        Login
+      </Button>
+      <Button
+        colorScheme={"red"}
+        width="100%"
+        style={{ marginTop: 15 }}
+        onChlick={() => {
+          setEmail("guest@example.com");
+          setPassword("123456");
+        }}
+      >
+        Get Guest User Credentials
+      </Button>
+    </VStack>
+  );
 }
 
-export default Login
+export default Login;
