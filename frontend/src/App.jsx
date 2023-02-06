@@ -1,3 +1,4 @@
+import "./App.css"
 import {Route} from "react-router-dom";
 import HomePage from "./Pages/Home/HomePage";
 import ChatPage from "./Pages/Chat/ChatPage"
@@ -8,8 +9,6 @@ function App() {
 
           <Route path="/" component={HomePage} exact/>
           <Route path="/chats" component={ChatPage} exact/>
-          
-
     </div>
   );
 }
