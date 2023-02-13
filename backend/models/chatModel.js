@@ -5,7 +5,7 @@ const chatModel = mongoose.Schema(
     chatName: { type: String, trim: true },
     isGroupChat: { type: Boolean, default: false },
     //list of users
-    user: [
+    users: [
       {
         type: mongoose.Schema.Types.ObjectId, //contains id of the user
         ref: "User", //reference to the user model
