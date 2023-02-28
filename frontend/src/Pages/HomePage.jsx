@@ -9,10 +9,21 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import Login from "../../components/Authentication/Login";
-import Signup from "../../components/Authentication/Signup";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
+import Login from "../components/Authentication/Login";
+import Signup from "../components/Authentication/Signup";
 
 function HomePage() {
+  const history = useHistory();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+
+    //if user is there then push to chats page
+    if (user) history.push("/chats");
+  }, [history]);
+
   return (
     <Container maxW="xl" centerContent>
       <Box
@@ -33,8 +44,8 @@ function HomePage() {
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">
           <TabList mb="1em">
-            <Tab _selected={{color:"white", bg:"#f58453"}}>Login</Tab>
-            <Tab _selected={{color:"white", bg:"#f58453"}}>Sign Up</Tab>
+            <Tab _selected={{ color: "white", bg: "#f58453" }}>Login</Tab>
+            <Tab _selected={{ color: "white", bg: "#f58453" }}>Sign Up</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
